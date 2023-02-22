@@ -1,7 +1,7 @@
 import React from 'react';
 import AppSearchAPIConnector from "@elastic/search-ui-app-search-connector";
 import "@elastic/react-search-ui-views/lib/styles/styles.css";
-import { ENDPOINT_BASE, ENGINE_NAME, searchQuery, SEARCH_KEY } from './config';
+import { config, ENDPOINT_BASE, ENGINE_NAME, SEARCH_KEY } from './config';
 import { Layout } from "@elastic/react-search-ui-views";
 import "@elastic/react-search-ui-views/lib/styles/styles.css";
 import {
@@ -29,10 +29,7 @@ let facetFields = getFacetFields() as Array<string>
 
 function App() {
   return (
-    <SearchProvider config={{
-      apiConnector: connector,
-      searchQuery: searchQuery()
-    }}>
+    <SearchProvider config={config}>
       <WithSearch mapContextToProps={({ wasSearched }) => ({ wasSearched })}>
         {({ wasSearched }) => {
           return (
@@ -49,7 +46,6 @@ function App() {
                         />
                       )}
                       {facetFields.map(field => {
-                        console.log(field)
                         return (
                           <Facet key={field} field={field} label={field} />
                         )

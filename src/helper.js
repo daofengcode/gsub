@@ -1,5 +1,4 @@
 import config from "./engine.json";
-
 export function getConfig() {
     if (process.env.NODE_ENV === "test") {
       return {};
