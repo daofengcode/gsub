@@ -3,18 +3,7 @@ import "@elastic/react-search-ui-views/lib/styles/styles.css";
 import { config } from './config';
 import { Layout } from "@elastic/react-search-ui-views";
 import "@elastic/react-search-ui-views/lib/styles/styles.css";
-import {
-  ErrorBoundary,
-  WithSearch,
-  PagingInfo,
-  ResultsPerPage,
-  Paging,
-  Facet,
-  SearchProvider,
-  Results,
-  SearchBox,
-  Sorting
-} from "@elastic/react-search-ui";
+import { ErrorBoundary, WithSearch, PagingInfo, ResultsPerPage, Paging, Facet, SearchProvider, Results, SearchBox, Sorting } from "@elastic/react-search-ui";
 import { buildSortOptionsFromConfig, getConfig, getFacetFields } from './helper';
 import CustomResultView from './components/CustomResultView';
 
