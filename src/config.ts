@@ -1,4 +1,3 @@
-import { SearchQuery } from "@elastic/search-ui"
 import AppSearchAPIConnector from "@elastic/search-ui-app-search-connector"
 import { buildAutocompleteQueryConfig, buildFacetConfigFromConfig, buildSearchOptionsFromConfig, getConfig } from "./helper"
 
@@ -24,41 +23,3 @@ export const config = {
     apiConnector: connector,
     alwaysSearchOnInitialLoad: true
 };
-
-
-// export const searchQuery = (): SearchQuery => {
-//     return {
-//         search_fields: {
-//             post_title: {},
-//             post_content: {}
-//         },
-//         result_fields: {
-//             "ID": {
-//                 raw: {}
-//             },
-//             "post_id": {
-//                 raw: {}
-//             },
-//             "post_date": {
-//                 raw: {}
-//             },
-//             "post_title": {
-//                 raw: {}
-//             },
-//             "post_type": {
-//                 raw: {}
-//             },
-//             "post_content": {
-//                 raw: {}
-//             }
-//         },
-//         sortField: "post_date",
-//         facets: {
-//             "date_terms.year": {
-//                 type: "value",
-//                 size: 100
-//             }
-//         }
-//     }
-// }
-

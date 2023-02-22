@@ -1,7 +1,6 @@
 import React from 'react';
-import AppSearchAPIConnector from "@elastic/search-ui-app-search-connector";
 import "@elastic/react-search-ui-views/lib/styles/styles.css";
-import { config, ENDPOINT_BASE, ENGINE_NAME, SEARCH_KEY } from './config';
+import { config } from './config';
 import { Layout } from "@elastic/react-search-ui-views";
 import "@elastic/react-search-ui-views/lib/styles/styles.css";
 import {
@@ -17,13 +16,7 @@ import {
   Sorting
 } from "@elastic/react-search-ui";
 import { buildSortOptionsFromConfig, getConfig, getFacetFields } from './helper';
-
-
-const connector = new AppSearchAPIConnector({
-  searchKey: SEARCH_KEY,
-  endpointBase: ENDPOINT_BASE,
-  engineName: ENGINE_NAME
-});
+import CustomResultView from './components/CustomResultView';
 
 let facetFields = getFacetFields() as Array<string>
 
@@ -46,6 +39,7 @@ function App() {
                         />
                       )}
                       {facetFields.map(field => {
+                        console.log(field)
                         return (
                           <Facet key={field} field={field} label={field} />
                         )
@@ -58,6 +52,7 @@ function App() {
                       urlField={getConfig().urlField}
                       thumbnailField={getConfig().thumbnailField}
                       shouldTrackClickThrough={true}
+                      resultView={CustomResultView}
                     />
                   }
                   bodyHeader={
