@@ -1,0 +1,202 @@
+@keyframes zoom-fade {
+    0% {
+        -webkit-transform: scale(0.8);
+        transform: scale(0.8);
+    }
+
+    50% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+
+    100% {
+        -webkit-transform: scale(0.8);
+        transform: scale(0.8);
+    }
+}
+
+@keyframes move-forever {
+    0% {
+        transform: translate3d(-90px, 0, 0);
+    }
+
+    100% {
+        transform: translate3d(85px, 0, 0);
+    }
+}
+
+.paternLayerTwo {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 493px;
+    height: 938px;
+    background-position: right top;
+    background-repeat: no-repeat;
+    background-image: url('./images/pattern-1.png');
+    animation-name: zoom-fade;
+    animation-duration: 8s;
+    animation-iteration-count: infinite;
+}
+
+.patternLayerOne {
+    position: absolute;
+    left: 0px;
+    top: 130px;
+    width: 185px;
+    height: 373px;
+    opacity: 0.1;
+    background-repeat: no-repeat;
+    background-image: url('./images/pattern-2.png');
+}
+
+.patternLayerThree {
+    position: absolute;
+    right: 1%;
+    top: 0%;
+    width: 725px;
+    height: 906px;
+    background-repeat: no-repeat;
+    background-image: url('./images/pattern-5.png');
+}
+
+.parallax>use {
+    animation: "move-forever 25s cubic-bezier(0.55, 0.5, 0.45, 0.5) infinite"
+}
+
+.parallax>use:nth-child(1) {
+    animation-delay: -2s;
+    animation-duration: 7s;
+}
+
+svg:not(:root) {
+    overflow: hidden;
+}
+
+.waves {
+    position: absolute;
+    left: 0px;
+    bottom: -40px;
+    width: 100%;
+    height: 15vh;
+    margin-bottom: -8px;
+    min-height: 100px;
+    max-height: 150px;
+}
+
+.parallax>use {
+    animation: move-forever 25s cubic-bezier(0.55, 0.5, 0.45, 0.5) infinite;
+}
+
+.parallax>use:nth-child(4) {
+    animation-delay: -5s;
+    animation-duration: 20s;
+}
+
+.parallax>use:nth-child(3) {
+    animation-delay: -4s;
+    animation-duration: 13s;
+}
+
+.box {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    background-image: linear-gradient(to left, #0090E4 0%, #1B18A1 100%);
+    display: flex;
+    align-items: center;
+    padding-top: 5%;
+    flex-direction: column;
+}
+
+.block {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    align-items: center;
+    flex: 1;
+    z-index: 1;
+}
+
+.block>.title {
+    font-size: 3rem;
+    color: #FDFEFE;
+    text-align: center;
+}
+
+.formBlock {
+    width: 50%;
+    display: flex;
+    align-items: center;
+}
+
+.formBlock input {
+    outline-style: none;
+    border: 1px solid #ccc;
+    padding: 13px 14px;
+    width: 620px;
+    font-size: 1rem;
+    flex: 1;
+}
+
+.formBlock input:focus {
+    border-color: yellow;
+    outline: 0;
+}
+
+.formBlock button {
+    background-color: #4CAF50;
+    /* Green */
+    border: none;
+    color: white;
+    padding: 0 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1rem;
+    height: 100%;
+    cursor: pointer;
+    width: 80px;
+}
+
+.footerBottom {
+    color: #D9D9D9;
+    border-top: 1px solid rgba(255, 255, 255, 0.10);
+    width: 100%;
+    text-align: center;
+    height: 100px;
+    line-height: 20px;
+    z-index: 1;
+}
+
+.footerBottom a {
+    color: #fe4c1c;
+    text-decoration: none;
+}
+
+.footerBottom a:hover {
+    color: #ee7756;
+    text-decoration: underline;
+}
+
+@media screen and (max-width: 1024px) {
+    .block>.title {
+        font-size: 2rem;
+    }
+
+    .formBlock {
+        width: 80%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .block>.title {
+        font-size: 1.4rem;
+        padding-top: 100px;
+    }
+
+    .formBlock {
+        width: 90%;
+    }
+}

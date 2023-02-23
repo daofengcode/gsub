@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { VERSION } from './config';
-import { CssBaseline } from '@mui/material'
 
 console.log(`App Version: ${VERSION}`)
 
@@ -12,10 +11,7 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <React.Fragment>
-      <CssBaseline></CssBaseline>
-      <App />
-    </React.Fragment>
+    <App />
   </React.StrictMode>
 );
 
