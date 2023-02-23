@@ -171,12 +171,12 @@ svg:not(:root) {
 }
 
 .footerBottom a {
-    color: #fe4c1c;
+    color: #ffeb3b;
     text-decoration: none;
 }
 
 .footerBottom a:hover {
-    color: #ee7756;
+    color: #fff176;
     text-decoration: underline;
 }
 

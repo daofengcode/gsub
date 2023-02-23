@@ -25,7 +25,7 @@ const PageLayout = (props: Props) => {
         <StyledBox>
             <GlobalNav />
             <StyledMain>
-                <Container maxWidth="xl" sx={{ marginY: 1, bgcolor: "white", flex: 1 }}>
+                <Container maxWidth="lg" sx={{ marginY: 1, bgcolor: "white", flex: 1 }}>
                     <Outlet />
                 </Container>
             </StyledMain>

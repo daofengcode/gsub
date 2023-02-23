@@ -6,6 +6,6 @@ export const usePost = (id: any) => {
     return useQuery<any, Error>(
         ["post", { id }],
         () => getPost(id!),
-        { enabled: !!id } // 如果 id 为 undefined，不执行请求操作
+        // { enabled: !!id } // 如果 id 为 undefined，不执行请求操作
     )
 }
