@@ -15,7 +15,7 @@ const StyledBox = styled.div((props) => ({
 const StyledTime = styled.div(props => ({
     "marginLeft": "auto",
     "color": "blue",
-    "textAlign":"right",
+    "textAlign": "right",
     paddingBottom: "8px"
 }))
 
@@ -49,7 +49,7 @@ const Post = (props: Props) => {
                     {query.data.data.title.rendered}
                 </Typography>
                 <StyledTime>{getAllTimeString(query.data.data.date)}</StyledTime>
-                <Divider variant="middle" />
+                <Divider />
                 <StyledBox dangerouslySetInnerHTML={{ __html: query.data.data.content.rendered }}></StyledBox>
             </React.Fragment>
         )

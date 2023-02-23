@@ -28,7 +28,7 @@ const Search = (props: Props) => {
                                                 />
                                             )}
                                             {facetFields.map(field => {
-                                                console.log(field)
+                                                // console.log(field)
                                                 return (
                                                     <Facet key={field} field={field} label={field} />
                                                 )
