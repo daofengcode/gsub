@@ -3,7 +3,6 @@ import styled from '@emotion/styled';
 import React from 'react'
 import { useNavigate } from 'react-router-dom';
 import { removeHtmlTags } from '../utils/string.helper';
-import { redirect } from "react-router-dom";
 
 const StyledBox = styled.div(props => ({
     backgroundColor: "white",

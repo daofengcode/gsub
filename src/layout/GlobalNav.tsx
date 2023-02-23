@@ -8,13 +8,35 @@ import InputBase from '@mui/material/InputBase';
 import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
 import { AccountCircle } from '@mui/icons-material';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import Container from '@mui/material/Container';
+import styled from '@emotion/styled';
+import { Link } from "react-router-dom";
+
+
+const StyledBox = styled.div(props => ({
+    display: "flex",
+    alignItems: "center",
+    flexGrow: 1,
+    cursor: "pointer"
+}))
+
+const StyledLogo = styled.img(props => ({
+    height: "32px",
+    marginRight: "8px"
+}))
 
 type Props = {}
 
 const GlobalNav = (props: Props) => {
     let location = useLocation();
+    const navigate = useNavigate();
+    const onClickLogin = () => {
+        navigate("/")
+    }
+    const onClickSearch = () => {
+        navigate("/search")
+    }
     if (location.pathname == "/") {
         return <></>
     } else {
@@ -22,27 +44,21 @@ const GlobalNav = (props: Props) => {
             <AppBar sx={{ position: "sticky", top: "0" }}>
                 <Container maxWidth="lg">
                     <Toolbar>
+                        <StyledBox onClick={onClickLogin}>
+                            <StyledLogo src="/icon.png" alt="" />
+                            <Typography variant="h6" component="div">
+                                郭文贵视频｜字幕搜索
+                            </Typography>
+                        </StyledBox>
                         <IconButton
-                            size="large"
-                            edge="start"
-                            color="inherit"
-                            aria-label="menu"
-                            sx={{ mr: 2 }}
-                        >
-                            <MenuIcon />
-                        </IconButton>
-                        <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                            Photos
-                        </Typography>
-                        <IconButton
+                            onClick={onClickSearch}
                             size="large"
                             aria-label="account of current user"
                             aria-controls="menu-appbar"
                             aria-haspopup="true"
-                            // onClick={handleMenu}
                             color="inherit"
                         >
-                            <AccountCircle />
+                            <SearchIcon />
                         </IconButton>
                     </Toolbar>
                 </Container>

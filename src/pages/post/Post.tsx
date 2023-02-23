@@ -27,7 +27,9 @@ const Post = (props: Props) => {
     const query = usePost(params.id)
 
     React.useEffect(() => {
-        console.log(query.data)
+        if (query.data) {
+            document.title = query.data.data.title.rendered;
+        }
     }, [query.data])
 
     if (query.isLoading) {
