@@ -1,7 +1,9 @@
 import { SearchResult } from '@elastic/search-ui';
 import styled from '@emotion/styled';
 import React from 'react'
+import { useNavigate } from 'react-router-dom';
 import { removeHtmlTags } from '../utils/string.helper';
+import { redirect } from "react-router-dom";
 
 const StyledBox = styled.div(props => ({
     backgroundColor: "white",
@@ -36,10 +38,11 @@ type Props = {
 }
 
 const CustomResultView = (props: Props) => {
-    console.log(props.result)
     let text = removeHtmlTags(props.result.post_content.raw)
+    const navigate = useNavigate();
     const onClick = () => {
-        console.log(props.result.id.raw)
+        let id = props.result.id.raw
+        navigate(`/post/${id}`)
     }
     return (
         <StyledBox onClick={onClick}>
