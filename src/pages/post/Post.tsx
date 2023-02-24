@@ -9,6 +9,9 @@ import { getAllTimeString } from '../../utils/string.helper';
 const StyledBox = styled.div((props) => ({
     "& img": {
         maxWidth: "100%"
+    },
+    "& video":{
+        maxWidth: "100%"
     }
 }))
 
