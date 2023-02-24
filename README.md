@@ -1,46 +1,49 @@
-# Getting Started with Create React App
+## 使用技术栈
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+* react、typescript，MUI
+* 包管理：yarn（V1），下载地址：https://github.com/yarnpkg/yarn/releases
 
-## Available Scripts
+## 脚本命令
 
-In the project directory, you can run:
+- 安装依赖包：yarn install
 
-### `npm start`
+- 运行(开发模式)：yarn start
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- 编译项目：yarn build
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- 运行(生产模式)：yarn serve
 
-### `npm test`
+## 编译步骤
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. 依次安装[nodejs](https://nodejs.org/en/)、[yarn](https://github.com/yarnpkg/yarn/releases)
+2. 在package.json文件所在目录，执行命令`yarn install`安装依赖包。
+3. 在package.json文件所在目录，创建文件`.env`，参考内容如下：
 
-### `npm run build`
+```ini
+REACT_APP_VERSION=$npm_package_version
+REACT_APP_API_URL="https://gsub.org/wp-json/wp/v2"
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+* REACT_APP_API_URL：后端服务器API URL。
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+* REACT_APP_IM_URL：gsub wordpress网站的域名。
+4. 运行`yarn build`命令，将生成一个名为`build`文件夹。该文件夹中的文件即为需要上传到服务器的文件。
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 部署方式
 
-### `npm run eject`
+Nginx最小化配置：
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```
+server {
+    listen 80;
+    root /var/www/html;
+    index index.html;
+    server_name 自定义域名;
+    location / {
+        try_files $uri /index.html;
+    }
+}
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+- /var/www/html其内容为前端项目的build文件夹中的文件
+- `try_files $uri /index.html;` 必须添加此行，否则页面刷新将呈现为404
