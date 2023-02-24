@@ -10,7 +10,7 @@ const Home = (props: Props) => {
             <div className={styles.block}>
                 <p className={styles.title}>郭文贵视频｜字幕搜索</p>
                 <form action='/search' method='get' className={styles.formBlock} autoComplete="off">
-                    <input name='q' type="text" maxLength={30} />
+                    <input name='q' type="text" maxLength={30} autoFocus/>
                     <button type="submit">搜索</button>
                 </form>
             </div>
