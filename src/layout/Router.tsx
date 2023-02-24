@@ -1,6 +1,7 @@
 import React from 'react'
 import { Route, Routes } from 'react-router-dom'
 import NotFound from '../components/NotFound'
+import Farm from '../pages/farm/Farm'
 import Home from '../pages/home/Home'
 import Post from '../pages/post/Post'
 import Search from '../pages/search/Search'
@@ -16,6 +17,7 @@ const Router = (props: Props) => {
                 <Route element={<PageLayout></PageLayout>}>
                     <Route path='search' element={<Search></Search>}></Route>
                     <Route path='post/:id' element={<Post></Post>}></Route>
+                    <Route path='farm' element={<Farm></Farm>}></Route>
                     <Route path='*' element={<NotFound />} />
                 </Route>
             </Route>

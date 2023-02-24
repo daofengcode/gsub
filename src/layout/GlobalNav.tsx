@@ -12,6 +12,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import Container from '@mui/material/Container';
 import styled from '@emotion/styled';
 import { Link } from "react-router-dom";
+import AddHomeIcon from '@mui/icons-material/AddHome';
 
 
 const StyledBox = styled.div(props => ({
@@ -37,6 +38,9 @@ const GlobalNav = (props: Props) => {
     const onClickSearch = () => {
         navigate("/search")
     }
+    const onClickFarm = () => {
+        navigate("/farm")
+    }
     if (location.pathname == "/") {
         return <></>
     } else {
@@ -47,7 +51,7 @@ const GlobalNav = (props: Props) => {
                         <StyledBox onClick={onClickLogin}>
                             <StyledLogo src="/icon.png" alt="" />
                             <Typography variant="h6" component="div">
-                                郭文贵视频｜字幕搜索
+                                郭文贵视频字幕搜索
                             </Typography>
                         </StyledBox>
                         <IconButton
@@ -59,6 +63,16 @@ const GlobalNav = (props: Props) => {
                             color="inherit"
                         >
                             <SearchIcon />
+                        </IconButton>
+                        <IconButton
+                            onClick={onClickFarm}
+                            size="large"
+                            aria-label="account of current user"
+                            aria-controls="menu-appbar"
+                            aria-haspopup="true"
+                            color="inherit"
+                        >
+                            <AddHomeIcon />
                         </IconButton>
                     </Toolbar>
                 </Container>

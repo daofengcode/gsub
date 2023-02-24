@@ -41,7 +41,7 @@ export function getConfig() {
   
   export function getFacetFields() {
     let result = getConfig().facets || [];
-    console.log("resut",result)
+    // console.log("resut",result)
     return result
   }
   

@@ -1,5 +1,6 @@
 import React from 'react'
-import styles from './home.module.css';
+import styles from './home.module.css'
+import { Link } from "react-router-dom";
 
 type Props = {}
 
@@ -17,7 +18,7 @@ const Home = (props: Props) => {
             <div className={styles.patternLayerThree}></div>
             <div className={styles.footerBottom}>
                 <p> Copyright ©2023  Himalaya Washington DC</p>
-                <a href="#">喜马拉雅华盛顿DC农场</a>
+                <Link to="/farm">喜马拉雅华盛顿DC农场</Link>
             </div>
         </div>
     )
