@@ -26,7 +26,7 @@ REACT_APP_API_URL="https://gsub.org/wp-json/wp/v2"
 
 * REACT_APP_VERSION：应用程序版本号，保存默认，不要修改。
 
-* REACT_APP_IM_URL：gsub wordpress网站的域名。
+* REACT_APP_API_UR：gsub wordpress网站的域名。
 4. 运行`yarn build`命令，将生成一个名为`build`文件夹。该文件夹中的文件即为需要上传到服务器的文件。
 
 ## 部署方式

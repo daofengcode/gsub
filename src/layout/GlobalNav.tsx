@@ -54,16 +54,19 @@ const GlobalNav = (props: Props) => {
                                 郭文贵视频字幕搜索
                             </Typography>
                         </StyledBox>
-                        <IconButton
-                            onClick={onClickSearch}
-                            size="large"
-                            aria-label="account of current user"
-                            aria-controls="menu-appbar"
-                            aria-haspopup="true"
-                            color="inherit"
-                        >
-                            <SearchIcon />
-                        </IconButton>
+                        {location.pathname != "/search" && (
+                            <IconButton
+                                onClick={onClickSearch}
+                                size="large"
+                                aria-label="account of current user"
+                                aria-controls="menu-appbar"
+                                aria-haspopup="true"
+                                color="inherit"
+                            >
+                                <SearchIcon />
+                            </IconButton>
+                        )}
+
                         <IconButton
                             onClick={onClickFarm}
                             size="large"

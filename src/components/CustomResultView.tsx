@@ -14,7 +14,11 @@ const StyledBox = styled.div(props => ({
         backgroundColor: "#FAFAFA",
         boxShadow: "0 4px 6px -1px rgba(0, 0, 0, 0.1),0 2px 4px -1px rgba(0, 0, 0, 0.06)"
     },
-    cursor: "pointer"
+    cursor: "pointer",
+    "& em":{
+        color: "#FF5722",
+        fontStyle: "normal"
+    }
 }))
 
 const StyledTitle = styled.p(props => ({
@@ -37,7 +41,7 @@ type Props = {
 }
 
 const CustomResultView = (props: Props) => {
-    let text = removeHtmlTags(props.result.post_content.raw)
+    // let text = removeHtmlTags(props.result.post_content.raw)
     const navigate = useNavigate();
     const onClick = () => {
         let id = props.result.id.raw
@@ -45,8 +49,8 @@ const CustomResultView = (props: Props) => {
     }
     return (
         <StyledBox onClick={onClick}>
-            <StyledTitle>{props.result.post_title.raw}</StyledTitle>
-            <StyledText>{text}</StyledText>
+            <StyledTitle dangerouslySetInnerHTML={{ __html: props.result.post_title.snippet }}></StyledTitle>
+            <StyledText  dangerouslySetInnerHTML={{ __html: props.result.post_content.snippet }}></StyledText>
         </StyledBox>
     )
 }
