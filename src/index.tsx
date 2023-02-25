@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { VERSION } from './config';
+import "./index.css"
 
 console.log(`App Version: ${VERSION}`)
 
